@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- community.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Stories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Community Stories</h1>
+      <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="resourcepage.html">AI Resources</a></li>
+        <li><a href="community.html">Community Stories</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h2>Share Your Story</h2>
+    <form class="story-form">
+      <input type="text" placeholder="Your name (optional)">
+      <textarea placeholder="Share your experience..."></textarea>
+      <button type="submit">Post Story</button>
+    </form>
+
+    <h2>Recent Posts</h2>
+    <div class="stories">
+      <p><strong>Sarah:</strong> I'm grateful for new AI tools that helped detect my cancer early.</p>
+      <p><strong>Michael:</strong> Supporting my wife through her treatment showed me the power of awareness and technology.</p>
+    </div>
+  </section>
+
+  <footer>
+        <p>© A.Tabouret Extended Inquiry Breast Cancer Awareness Project</p>
+  </footer>
+
+<script>
+  const form = document.querySelector('.story-form');
+  const storiesDiv = document.querySelector('.stories');
+  const storiesKey = 'communityStories';
+
+  function renderStories() {
+    const stories = JSON.parse(localStorage.getItem(storiesKey)) || [];
+    storiesDiv.innerHTML = stories.map(story => 
+      `<p><strong>${story.name || 'Anonymous'}:</strong> ${story.text}</p>`
+    ).join('');
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const name = form.querySelector('input').value.trim();
+    const text = form.querySelector('textarea').value.trim();
+    if (!text) return;
+
+    const stories = JSON.parse(localStorage.getItem(storiesKey)) || [];
+    stories.push({ name, text });
+    localStorage.setItem(storiesKey, JSON.stringify(stories));
+
+    form.reset();
+    renderStories();
+  });
+
+  renderStories();
+</script>
+
+</body>
+</html>

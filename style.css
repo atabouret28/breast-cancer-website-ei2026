@@ -1,0 +1,151 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #fff5f7;
+  color: #333;
+}
+
+header {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #e91e63;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ff69b4;  /* pink hover color */
+  transition: 0.3s ease;
+}
+
+.content {
+  width: 80%;
+  margin: 2em auto;
+  background-color: white;
+  padding: 2em;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #c77993;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.story-form textarea, 
+.story-form input {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+.story-form button {
+  background-color: #e91e63;
+  color: white;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resource-list a {
+  color: #e91e63;
+}
+
+.slideshow-container {
+  width: 100%;        /* full width */
+  max-height: 800px;  /* adjust this number to make it thinner or taller */
+  overflow: hidden;   /* hides leftover image height */
+  position: relative;
+}
+
+.slideshow-container img {
+  width: 100%;        /* stretch image to full width */
+  height: auto;       /* keep proportions */
+  object-fit: cover;  /* crop top/bottom so it stays thin */
+}
+
+.mySlides {
+  display: none;
+  position: relative;
+}
+img {
+  border-radius: 10px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: rgba(0,0,0,0.5);
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.caption {
+  color: #fff;
+  font-size: 20px;
+  padding: 12px;
+  width: 100%;
+  text-align: center;
+  background: rgba(233,30,99,0.7);
+  border-radius: 10px;
+  position: relative; /* stops it from overlaying the image */
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #e91e63;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+footer {
+    position: static; /* Changes footer position to static */
+}

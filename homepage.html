@@ -1,0 +1,143 @@
+<!-- homepage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breast Cancer Awareness & AI in Healthcare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="slideshow-container">
+  
+  <div class="mySlides fade">
+    <div style="text-align:center;">
+      <div class="caption">Early Detection Matters</div>
+      <img src="early-detection.jpg" style="width:50%">
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="caption">AI is Changing Healthcare</div>
+    <img src="cancerpic3.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="caption">Support & Awareness Save Lives</div>
+    <img src="cancerpic2.avif" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+
+  <header>
+    <h1>Breast Cancer Awareness</h1>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="resourcepage.html">AI Resources</a></li>
+        <li><a href="community.html">Community Stories</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+  <h2>Understanding Breast Cancer</h2>
+  <p>
+    Breast cancer remains one of the most significant global health challenges, affecting 
+    1 in 8 women worldwide. In the United States alone, over 4 million women are survivors, 
+    while thousands lose their lives each year. Early detection is critical—when identified 
+    at an early stage, breast cancer has a five-year survival rate of 93–99%. Yet traditional 
+    screening methods such as mammography, ultrasound, and MRI still miss nearly 20% of 
+    cancers and can result in false positives that lead to unnecessary stress, biopsies, 
+    and treatment.
+  </p>
+
+  <h2>How AI Is Transforming Detection & Diagnosis</h2>
+  <p>
+    Artificial Intelligence has emerged as a powerful tool that enhances the accuracy, 
+    speed, and reliability of breast cancer screening. Deep-learning systems can analyze 
+    imaging data, recognize subtle tumor patterns, and detect cancers that may be overlooked 
+    by the human eye. Studies such as the 2023 MASAI trial show that AI-assisted readings 
+    detect up to 20% more cancers than radiologists alone while reducing workload by 44%.
+  </p>
+  <p>
+    AI tools including Vara, MammoScreen, LORIS, MUSK, and MammoRisk, support clinicians by 
+    identifying suspicious lesions, predicting recurrence or treatment response, evaluating 
+    risk levels, and generating high-accuracy reports within minutes. When radiologists and 
+    AI work together, diagnostic accuracy increases significantly.
+  </p>
+
+  <h2>Supporting Patients Through Precision Medicine</h2>
+  <p>
+    Beyond detection, AI is also transforming how doctors plan treatments. Predictive models 
+    can estimate whether a patient will respond to immunotherapies, assess the likelihood of 
+    cancer returning, and help design personalized care plans using data from imaging, 
+    medical histories, genetics, and pathology reports. These tools reduce uncertainty, 
+    shorten wait times, and may prevent unnecessary biopsies and procedures.
+  </p>
+
+  <h2>Challenges & the Future of AI in Healthcare</h2>
+  <p>
+    Although AI is proving effective, its integration is still limited. High costs, 
+    lack of insurance coverage, and limited resources in rural or underfunded hospitals 
+    prevent widespread adoption. Ethical concerns—such as data privacy, transparency, 
+    and algorithmic bias—also require careful regulation. As AI becomes more affordable, 
+    standardized, and explainable, it has the potential to become a core part of early 
+    detection and life-saving breast cancer care.
+  </p>
+
+  <h2>Moving Forward</h2>
+  <p>
+    The future of breast cancer care is increasingly shaped by artificial intelligence. 
+    With the ability to analyze millions of medical images, detect early patterns, predict 
+    treatment response, and support clinical decisions, AI is paving the way for earlier 
+    diagnosis, more effective treatment, and more personalized care for millions of women 
+    around the world.
+  </p>
+</section>
+
+  <footer>
+    <p>© A.Tabouret Extended Inquiry Breast Cancer Awareness Project</p>
+  </footer>
+  <script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html>
