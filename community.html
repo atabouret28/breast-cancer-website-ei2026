@@ -20,7 +20,7 @@
     </nav>
   </header>
 
-  <section class="content">
+  <section class="contentCommunity">
     <h2>Share Your Story</h2>
     <form class="story-form">
       <input type="text" placeholder="Your name (optional)">
@@ -29,10 +29,9 @@
     </form>
 
     <h2>Recent Posts</h2>
-    <div class="stories">
-      <p><strong>Sarah:</strong> I'm grateful for new AI tools that helped detect my cancer early.</p>
-      <p><strong>Michael:</strong> Supporting my wife through her treatment showed me the power of awareness and technology.</p>
-    </div>
+<div class="stories">
+  <!-- Stories will be injected here -->
+</div>
   </section>
 
   <footer>
@@ -46,19 +45,29 @@
 
   function renderStories() {
     const stories = JSON.parse(localStorage.getItem(storiesKey)) || [];
-    storiesDiv.innerHTML = stories.map(story => 
-      `<p><strong>${story.name || 'Anonymous'}:</strong> ${story.text}</p>`
-    ).join('');
+
+    storiesDiv.innerHTML = stories.map(story => `
+      <div class="story-card">
+        <div class="story-header">
+          ${story.name || 'Anonymous'}
+          <span>shared a story</span>
+        </div>
+        <div class="story-text">
+          ${story.text}
+        </div>
+      </div>
+    `).join('');
   }
 
   form.addEventListener('submit', event => {
     event.preventDefault();
+
     const name = form.querySelector('input').value.trim();
     const text = form.querySelector('textarea').value.trim();
     if (!text) return;
 
     const stories = JSON.parse(localStorage.getItem(storiesKey)) || [];
-    stories.push({ name, text });
+    stories.unshift({ name, text }); // newest on top
     localStorage.setItem(storiesKey, JSON.stringify(stories));
 
     form.reset();
@@ -67,6 +76,7 @@
 
   renderStories();
 </script>
+
 
 </body>
 </html>
